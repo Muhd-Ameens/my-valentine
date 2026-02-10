@@ -7,16 +7,18 @@
 <style>
 body {
     margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff9ecf, #ffc2e6, #ffb3d9);
+    min-height: 100vh;
+    background: #ffd6e8;
     font-family: 'Comic Sans MS', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
-    position: relative;
+
+    overflow-x: hidden;   /* prevent sideways scroll */
+    overflow-y: auto;     /* allow vertical scroll */
 }
+
 
 /* Glow Card */
 .container {
