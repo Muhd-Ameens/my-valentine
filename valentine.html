@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💖</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: #ffd6e8;
+    font-family: 'Comic Sans MS', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Floating items */
+.floating {
+    position: fixed;
+    font-size: 24px;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0.7;
+    }
+}
+
+
+/* Main Card */
+.container {
+    background: #fff0f6;
+    padding: 30px 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.4);
+    width: 90%;
+    max-width: 400px;
+    z-index: 2;
+}
+
+h1 {
+    color: #ff4d88;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background: #ff66a3;
+    color: white;
+}
+
+#noBtn {
+    background: #ffb3d1;
+    color: #ff0066;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1> Will you be my Valentine? 💌</h1>
+
+    <button id="yesBtn"
+    onclick="window.location.href='yes.html'">
+    YES 💖
+    </button>
+
+    <button id="noBtn"
+        onclick="window.location.href='no.html'">
+        NO 😢
+    </button>
+</div>
+
+<script>
+// Floating hearts & teddies
+for (let i = 0; i < 25; i++) {
+    const floatItem = document.createElement("div");
+    floatItem.classList.add("floating");
+    floatItem.style.left = Math.random() * 100 + "vw";
+    floatItem.style.animationDuration = (12 + Math.random() * 8) + "s";
+    floatItem.innerHTML = Math.random() > 0.5 ? "💖" : "🧸";
+    document.body.appendChild(floatItem);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Are You Sure? 🥺</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: #ffd6e8;
+    font-family: 'Comic Sans MS', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #ff4d88;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background: #ff66a3;
+    color: white;
+}
+
+#noBtn {
+    position: absolute;
+    background: #ffb3d1;
+    color: #ff0066;
+}
+
+/* Floating hearts */
+.floating {
+    position: fixed;
+    font-size: 24px;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-120vh); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="center-content" id="safeArea">
+    <h1 id="question">Are you sure? 🥺</h1>
+
+    <button id="yesBtn" onclick="window.location.href='yes.html'">
+        Okay fine… YES 💖
+    </button>
+</div>
+
+<button id="noBtn">NO 😭</button>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const question = document.getElementById("question");
+const yesBtn = document.getElementById("yesBtn");
+const safeArea = document.getElementById("safeArea");
+
+const messages = [
+    "Are you sure? 🥺",
+    "Really sure? 😢",
+    "Think again... 💔",
+    "I’ll cry 😭",
+    "Last chance 💘"
+];
+
+let index = 0;
+
+// Initial position
+// Place NO button under YES button initially
+function setInitialPosition() {
+    const yesRect = yesBtn.getBoundingClientRect();
+    const noWidth = noBtn.offsetWidth;
+
+    noBtn.style.left = (window.innerWidth / 2 - noWidth / 2) + "px";
+    noBtn.style.top = (yesRect.bottom + 15) + "px";
+}
+
+window.onload = setInitialPosition;
+
+
+function isOverlapping(rect1, rect2) {
+    return !(
+        rect1.right < rect2.left ||
+        rect1.left > rect2.right ||
+        rect1.bottom < rect2.top ||
+        rect1.top > rect2.bottom
+    );
+}
+
+function moveButton() {
+    index++;
+    if (index < messages.length) {
+        question.innerText = messages[index];
+    }
+
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    let randomX, randomY;
+    let overlap;
+
+    do {
+        randomX = Math.random() * maxX;
+        randomY = Math.random() * maxY;
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+
+        const noRect = noBtn.getBoundingClientRect();
+        const safeRect = safeArea.getBoundingClientRect();
+
+        overlap = isOverlapping(noRect, safeRect);
+
+    } while (overlap);
+}
+
+// Mobile
+noBtn.addEventListener("touchstart", function(e) {
+    e.preventDefault();
+    moveButton();
+});
+
+// Desktop
+noBtn.addEventListener("mouseover", moveButton);
+
+// Floating hearts
+for (let i = 0; i < 25; i++) {
+    const floatItem = document.createElement("div");
+    floatItem.classList.add("floating");
+    floatItem.style.left = Math.random() * 100 + "vw";
+    floatItem.style.animationDuration = (12 + Math.random() * 8) + "s";
+    floatItem.innerHTML = Math.random() > 0.5 ? "💖" : "🧸";
+    document.body.appendChild(floatItem);
+}
+</script>
+
+</body>
+</html>

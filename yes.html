@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>She Said YES 😭💖</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9ecf, #ffc2e6, #ffb3d9);
+    font-family: 'Comic Sans MS', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Glow Card */
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255,255,255,0.3);
+    padding: 45px 25px;
+    border-radius: 30px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 0 40px rgba(255, 0, 102, 0.6);
+    animation: fadeIn 1s ease;
+    z-index: 2;
+}
+
+@keyframes fadeIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ff2e75;
+}
+
+.fun {
+    font-size: 90px;
+    margin: 20px 0;
+    animation: bounce 1.2s infinite;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+p {
+    color: white;
+    font-size: 18px;
+    margin: 6px 0;
+    text-shadow: 0 0 5px #ff2e75;
+}
+
+/* Floating celebration */
+.floating {
+    position: fixed;
+    font-size: 28px;
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>WAITTTT… YOU SAID YES?? 😳💖</h1>
+
+    <div class="fun">
+        💖
+    </div>
+
+    <p>Anjuuu😭 “Best decision of your life 😌 (maybe mine too)”</p>
+    <p><strong>From Today onwards💘</strong></p>
+    <p>I promise I won’t annoy you…</p>
+    <p>Okay maybe just a little 😏💕</p>
+</div>
+
+<script>
+// Floating hearts & sparkles
+for (let i = 0; i < 40; i++) {
+    const item = document.createElement("div");
+    item.className = "floating";
+    item.innerHTML = Math.random() > 0.5 ? "💖" : "✨";
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.animationDuration = (8 + Math.random() * 6) + "s";
+    document.body.appendChild(item);
+}
+</script>
+
+</body>
+</html>
