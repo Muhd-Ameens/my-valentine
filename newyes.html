@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>You Said Yes 😍</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 40px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        p {
+            font-size: 20px;
+            margin-top: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .rethink {
+            background-color: white;
+            color: #ff4b6e;
+        }
+
+        .rethink:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ohhh 😳 You said YES that fast?? 💕</h1>
+    <p>Actually… I was preparing myself to convince you 😭💘
+        And you just said YES instantly??</p>
+
+    <p>Are you sureeee? Maybe you should rethink once 🤭</p>
+    <!-- <p>I dare you to Press rethink and Try "NO" 🤭</p> -->
+    
+    <button class="rethink" onclick="window.location.href='valentine.html'">
+        Rethink 😏
+    </button>
+
+</body>
+</html>
