@@ -1,71 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>You Said Yes 😍</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Said Yes 😳</title>
 
-        h1 {
-            font-size: 40px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: #ffd6e8;
+    font-family: 'Comic Sans MS', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
 
-        p {
-            font-size: 20px;
-            margin-top: 10px;
-            animation: fadeIn 2s ease-in-out;
-        }
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        button {
-            margin-top: 30px;
-            padding: 12px 25px;
-            font-size: 18px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+h1 {
+    color: #ff4d88;
+    margin-bottom: 15px;
+    padding: 0 20px;
+}
 
-        .rethink {
-            background-color: white;
-            color: #ff4b6e;
-        }
+p {
+    color: #d63384;
+    font-size: 18px;
+    padding: 0 25px;
+    margin: 8px 0;
+}
 
-        .rethink:hover {
-            transform: scale(1.1);
-        }
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background: #ff66a3;
+    color: white;
+    margin-top: 20px;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+/* Floating hearts */
+.floating {
+    position: fixed;
+    font-size: 24px;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-120vh); }
+}
+</style>
 </head>
+
 <body>
 
+<div class="center-content">
     <h1>Ohhh 😳 You said YES that fast?? 💕</h1>
-    <p>Actually… I was preparing myself to convince you 😭💘
-        And you just said YES instantly??</p>
 
-    <p>Are you sureeee? Maybe you should rethink once 🤭</p>
-    <!-- <p>I dare you to Press rethink and Try "NO" 🤭</p> -->
-    
-    <button class="rethink" onclick="window.location.href='valentine.html'">
+    <p>Actually… I was preparing myself to convince you 😭💘</p>
+    <p>And you just said YES instantly??</p>
+
+    <p>Are you sureeee? Maybe press rethink once 🤭</p>
+
+    <button onclick="window.location.href='valentine.html'">
         Rethink 😏
     </button>
+</div>
+
+<script>
+/* Floating hearts */
+for (let i = 0; i < 25; i++) {
+    const floatItem = document.createElement("div");
+    floatItem.classList.add("floating");
+    floatItem.style.left = Math.random() * 100 + "vw";
+    floatItem.style.animationDuration = (12 + Math.random() * 8) + "s";
+    floatItem.innerHTML = Math.random() > 0.5 ? "💖" : "🧸";
+    document.body.appendChild(floatItem);
+}
+</script>
 
 </body>
 </html>
