@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Are You Sure? 🥺</title>
+<title>Wait… Really? 🥺</title>
 
 <style>
 body {
@@ -26,8 +26,13 @@ body {
 
 h1 {
     color: #ff4d88;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding: 0 20px;
+}
+
+h2 {
+    color: #d63384;
+    margin-bottom: 25px;
 }
 
 button {
@@ -68,11 +73,13 @@ button {
 <body>
 
 <div class="center-content" id="safeArea">
-    <h1 id="question">Are you sure? 🥺</h1>
+    <h1 id="question">So you really said NO? 😢</h1>
+    <h2>Will you be my Valentine? 💘</h2>
 
     <button id="yesBtn" onclick="window.location.href='yes.html'">
-        Okay fine… YES 💖
+    Okay fine… YES 💖
     </button>
+
 </div>
 
 <button id="noBtn">NO 😭</button>
@@ -84,17 +91,15 @@ const yesBtn = document.getElementById("yesBtn");
 const safeArea = document.getElementById("safeArea");
 
 const messages = [
-    "Are you sure? 🥺",
-    "Really sure? 😢",
+    "So you really said NO? 😢",
+    "You sure about that? 🥺",
     "Think again... 💔",
-    "I’ll cry 😭",
-    "Last chance 💘"
+    "I’ll cry for real 😭",
+    "Last chance... 💘"
 ];
 
 let index = 0;
 
-// Initial position
-// Place NO button under YES button initially
 function setInitialPosition() {
     const yesRect = yesBtn.getBoundingClientRect();
     const noWidth = noBtn.offsetWidth;
@@ -104,7 +109,6 @@ function setInitialPosition() {
 }
 
 window.onload = setInitialPosition;
-
 
 function isOverlapping(rect1, rect2) {
     return !(
@@ -142,16 +146,14 @@ function moveButton() {
     } while (overlap);
 }
 
-// Mobile
 noBtn.addEventListener("touchstart", function(e) {
     e.preventDefault();
     moveButton();
 });
 
-// Desktop
 noBtn.addEventListener("mouseover", moveButton);
 
-// Floating hearts
+/* Floating hearts */
 for (let i = 0; i < 25; i++) {
     const floatItem = document.createElement("div");
     floatItem.classList.add("floating");
